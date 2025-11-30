@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full Cybersecurity Roadmap – 60 Day Lab Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="days.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Full Cybersecurity Lab Course</h1>
+    <p>60 Days · Daily Tasks · VM-Based Labs · For Ethical Hacking Only</p>
+  </header>
+
+  <main>
+    <section id="summary">
+      <h2>Your Progress</h2>
+      <div class="stats">
+        <div class="stat"><span id="stat-day">1</span><label>Current Day</label></div>
+        <div class="stat"><span id="stat-points">0</span><label>Total Points</label></div>
+        <div class="stat"><span id="stat-complete">0</span><label>Days Completed</label></div>
+      </div>
+      <button id="reset-progress">Reset Progress</button>
+      <p class="note">Progress is stored locally in your browser (<code>localStorage</code>).</p>
+    </section>
+
+    <section id="day-view">
+      <h2 id="day-title">Day 1</h2>
+      <p id="day-topic" class="topic"></p>
+      <p id="day-overview" class="overview"></p>
+
+      <div class="two-col">
+        <div>
+          <h3>Study / Notes</h3>
+          <ul id="reading-list"></ul>
+        </div>
+        <div>
+          <h3>VM Practice</h3>
+          <ul id="vm-list"></ul>
+        </div>
+      </div>
+
+      <h3>Example Code / Commands</h3>
+      <pre id="code-block"></pre>
+
+      <button id="complete-day">Mark Day Complete (+100 pts)</button>
+      <p id="lock-message" class="hidden lock-msg">Finish previous days to unlock this level.</p>
+    </section>
+
+    <section id="day-grid">
+      <h2>All 60 Days</h2>
+      <div id="days-container" class="grid"></div>
+    </section>
+
+    <section id="vm">
+      <h2>Your Virtual Machine Lab</h2>
+      <p>This course assumes you run all experiments inside an isolated virtual lab.</p>
+      <ol>
+        <li>Install a hypervisor: <strong>VirtualBox</strong> or <strong>VMware Player</strong>.</li>
+        <li>Create an <strong>attack VM</strong>: Kali Linux or Parrot Security.</li>
+        <li>Create one or more <strong>target VMs</strong>: Metasploitable2, DVWA, OWASP Juice Shop.</li>
+        <li>Use a <strong>host-only / internal network</strong> so traffic stays inside your laptop.</li>
+      </ol>
+      <p class="note"><strong>Legal reminder:</strong> Hack only systems you own or have written permission to test.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made for learning. Customize tasks in <code>days.js</code> as you grow.</p>
+  </footer>
+</body>
+</html>
