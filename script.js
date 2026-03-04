@@ -17,7 +17,7 @@ const days = Array.isArray(window.DAYS_DATA) ? window.DAYS_DATA : [];
 const DEFAULT_PROGRESS = Object.freeze({
   completedDays: [],
   totalPoints: 0,
-  passed: {},       // { [dayNumber]: true }
+  passed: {},       
   submissions: {}   // { [dayNumber]: { last: string, ok: boolean, ts: number } }
 });
 
