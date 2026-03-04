@@ -1,73 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Full Cybersecurity Roadmap – 60 Day Lab Course</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Full Cybersecurity Roadmap – 6 Month Lab Course</title>
+  <meta name="description" content="A structured 6-month cybersecurity learning roadmap with daily VM labs, tasks, and output validation." />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Data first -->
   <script src="days.js" defer></script>
+
+  <!-- App logic -->
   <script src="script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <h1>Full Cybersecurity Lab Course</h1>
-    <p>60 Days · Daily Tasks · VM-Based Labs · For Ethical Hacking Only</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <h1>Full Cybersecurity Lab Course</h1>
+        <p class="subtitle">6 Months · Daily Tasks · VM-Based Labs · Authorized learning only</p>
+      </div>
+
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#summary">Progress</a>
+        <a href="#day-view">Today</a>
+        <a href="#day-grid">All Days</a>
+        <a href="#vm">VM Lab</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section id="summary">
-      <h2>Your Progress</h2>
-      <div class="stats">
-        <div class="stat"><span id="stat-day">1</span><label>Current Day</label></div>
-        <div class="stat"><span id="stat-points">0</span><label>Total Points</label></div>
-        <div class="stat"><span id="stat-complete">0</span><label>Days Completed</label></div>
+    <section id="summary" aria-labelledby="progress-title">
+      <div class="section-head">
+        <h2 id="progress-title">Your Progress</h2>
+        <div class="section-actions">
+          <button id="reset-progress" type="button" class="btn btn-ghost">Reset</button>
+          <button id="export-progress" type="button" class="btn btn-ghost">Export</button>
+        </div>
       </div>
-      <button id="reset-progress">Reset Progress</button>
-      <p class="note">Progress is stored locally in your browser (<code>localStorage</code>).</p>
+
+      <div class="stats" role="group" aria-label="Progress stats">
+        <div class="stat">
+          <span id="stat-day">1</span>
+          <label>Current Day</label>
+        </div>
+        <div class="stat">
+          <span id="stat-points">0</span>
+          <label>Total Points</label>
+        </div>
+        <div class="stat">
+          <span id="stat-complete">0</span>
+          <label>Days Completed</label>
+        </div>
+      </div>
+
+      <p class="note">
+        Progress is stored locally in your browser (<code>localStorage</code>). Export if you want a backup.
+      </p>
     </section>
 
-    <section id="day-view">
-      <h2 id="day-title">Day 1</h2>
-      <p id="day-topic" class="topic"></p>
-      <p id="day-overview" class="overview"></p>
+    <section id="day-view" aria-labelledby="day-title">
+      <div class="section-head">
+        <div>
+          <h2 id="day-title">Day 1</h2>
+          <p id="day-topic" class="topic"></p>
+          <p id="day-overview" class="overview"></p>
+        </div>
+
+        <div class="day-status">
+          <span id="day-badge" class="pill">Locked</span>
+        </div>
+      </div>
 
       <div class="two-col">
-        <div>
+        <div class="card">
           <h3>Study / Notes</h3>
           <ul id="reading-list"></ul>
         </div>
-        <div>
+
+        <div class="card">
           <h3>VM Practice</h3>
           <ul id="vm-list"></ul>
         </div>
       </div>
 
-      <h3>Example Code / Commands</h3>
-      <pre id="code-block"></pre>
+      <div class="card">
+        <h3>Example Code / Commands</h3>
+        <pre id="code-block" class="code" aria-label="Example commands"></pre>
+      </div>
 
-      <button id="complete-day">Mark Day Complete (+100 pts)</button>
-      <p id="lock-message" class="hidden lock-msg">Finish previous days to unlock this level.</p>
+      <div class="card submission">
+        <h3>Lab Output Submission</h3>
+        <p id="check-prompt" class="note">
+          Paste the required output here. You must pass this check to unlock completion.
+        </p>
+
+        <textarea
+          id="submission"
+          class="textarea"
+          rows="7"
+          placeholder="Paste your output / answer here..."
+          spellcheck="false"
+        ></textarea>
+
+        <div class="submission-actions">
+          <button id="check-submission" type="button" class="btn btn-primary">Check Output</button>
+          <button id="show-hint" type="button" class="btn btn-ghost hidden">Show Hint</button>
+        </div>
+
+        <div id="submission-feedback" class="feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="day-actions">
+        <button id="complete-day" type="button" class="btn btn-success" disabled>
+          Mark Day Complete (+points)
+        </button>
+        <p id="lock-message" class="lock-msg hidden">Finish previous days to unlock this level.</p>
+      </div>
     </section>
 
-    <section id="day-grid">
-      <h2>All 60 Days</h2>
-      <div id="days-container" class="grid"></div>
+    <section id="day-grid" aria-labelledby="days-title">
+      <h2 id="days-title">All Days</h2>
+      <div id="days-container" class="grid" aria-label="All days grid"></div>
+      <p class="note">
+        Tip: You can review completed days anytime. Future days unlock only after passing the output check and completing in order.
+      </p>
     </section>
 
-    <section id="vm">
-      <h2>Your Virtual Machine Lab</h2>
-      <p>This course assumes you run all experiments inside an isolated virtual lab.</p>
+    <section id="vm" aria-labelledby="vm-title">
+      <h2 id="vm-title">Your Virtual Machine Lab</h2>
+      <p>This course assumes you run experiments inside an isolated lab environment.</p>
       <ol>
-        <li>Install a hypervisor: <strong>VirtualBox</strong> or <strong>VMware Player</strong>.</li>
-        <li>Create an <strong>attack VM</strong>: Kali Linux or Parrot Security.</li>
-        <li>Create one or more <strong>target VMs</strong>: Metasploitable2, DVWA, OWASP Juice Shop.</li>
-        <li>Use a <strong>host-only / internal network</strong> so traffic stays inside your laptop.</li>
+        <li>Install a hypervisor (VirtualBox or VMware Player).</li>
+        <li>Create an attack VM (Kali Linux or Parrot Security).</li>
+        <li>Create one or more target VMs (intentionally vulnerable apps you own/control).</li>
+        <li>Use a host-only/internal network so traffic stays inside your laptop.</li>
       </ol>
-      <p class="note"><strong>Legal reminder:</strong> Hack only systems you own or have written permission to test.</p>
+      <p class="note">
+        Legal reminder: Practice only on systems you own or have explicit written permission to test.
+      </p>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <p>Made for learning. Customize tasks in <code>days.js</code> as you grow.</p>
   </footer>
 </body>
